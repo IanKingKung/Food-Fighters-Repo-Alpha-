@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
-//donut man enemy general behavior
+//donut man enemy general behavior test comment
 
 public class DonutManBehavior : MonoBehaviour
 {
