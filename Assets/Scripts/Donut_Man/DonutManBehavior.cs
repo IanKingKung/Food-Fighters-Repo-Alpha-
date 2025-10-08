@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+//donut man enemy general behavior
 
 public class DonutManBehavior : MonoBehaviour
 {
