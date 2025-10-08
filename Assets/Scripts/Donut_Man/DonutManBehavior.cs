@@ -119,7 +119,7 @@ public class DonutManBehavior : MonoBehaviour
     public void DonutDie()
     {
         //drop the loot
-        int randomInt = Random.Range(0, 3);
+        int randomInt = Random.Range(1, 3);
         Vector3 targetPosition = transform.position - new Vector3(0f, 0.5f, 0f) + new Vector3(Random.Range(0f, 0.3f), 0f, Random.Range(0f, 0.3f));
         for (int i = 0; i < randomInt; i++)
         {
