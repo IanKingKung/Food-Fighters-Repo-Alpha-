@@ -113,7 +113,7 @@ public class DonutManBehavior : MonoBehaviour
         currentHealth -= num;
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
         Instantiate(plateHitEffect, transform.position, transform.rotation);
-        if(currentHealth <= 0) DonutDie();
+        if (currentHealth <= 0) DonutDie();
     }
 
     public void DonutDie()
