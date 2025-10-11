@@ -15,10 +15,15 @@ public class DonutManProj : MonoBehaviour
     //constants
     private int projDamage = 15;
 
+    //our sound effects
+    public AudioSource audioSource;
+    public AudioClip explosionSound;
+
     void Start()
     {
         playerControllerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         hitbox = GetComponentInChildren<DonutManProjHitbox>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -29,7 +34,7 @@ public class DonutManProj : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         {
-            if (other.gameObject.CompareTag("Floor")) ;
+            if(other.gameObject.CompareTag("Floor"))
             {
                 StartCoroutine(BlowUpAfterTime(2f));
             }
@@ -39,12 +44,15 @@ public class DonutManProj : MonoBehaviour
     private IEnumerator BlowUpAfterTime(float num)
     {
         yield return new WaitForSeconds(num);
+
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        if(hitbox.isPlayerInRange)
+        if (hitbox.isPlayerInRange)
         {
             //deal damage to player here
             playerControllerScript.PlayerTakeDamage(projDamage);
         }
-        Destroy(gameObject);
+        audioSource.PlayOneShot(explosionSound);
+        Destroy(gameObject, 0.1f);  //destroy projectile after a short delay for sound
+        
     }
 }
