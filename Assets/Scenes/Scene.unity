@@ -9790,16 +9790,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485104567650036610, guid: 3a390de1142804211894aaecc9b13761, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 690917897227936381, guid: 3a390de1142804211894aaecc9b13761, type: 3}
-      propertyPath: donutProjectilesPrefab1
-      value: 
-      objectReference: {fileID: 6147130743222786969, guid: e35d83f9cfea942169bff13a581fb6c6, type: 3}
-    - target: {fileID: 690917897227936381, guid: 3a390de1142804211894aaecc9b13761, type: 3}
-      propertyPath: donutProjectilesPrefab2
-      value: 
-      objectReference: {fileID: 1461068752121046827, guid: 2984f54b7743f4a40b7c5537eea9da09, type: 3}
     - target: {fileID: 6205310957427291116, guid: 3a390de1142804211894aaecc9b13761, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.9033566

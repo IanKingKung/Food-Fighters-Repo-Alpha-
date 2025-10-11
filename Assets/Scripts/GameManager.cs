@@ -27,9 +27,9 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = false;
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        // InvokeRepeating("SpawnApple", startDelay, spawnInterval);
-        // InvokeRepeating("SpawnBanana", startDelay, bananaSpawnInterval);
-        // InvokeRepeating("SpawnDonutEnemy", startDelay, donutManSpawnInterval);
+        InvokeRepeating("SpawnApple", startDelay, spawnInterval);
+        InvokeRepeating("SpawnBanana", startDelay, bananaSpawnInterval);
+        InvokeRepeating("SpawnDonutEnemy", startDelay, donutManSpawnInterval);
     }
 
     void Update()

@@ -180,6 +180,8 @@ MonoBehaviour:
   ammoPlatePrefab: {fileID: 1692199445723418006, guid: b8201e2aba48544379646dc6d3445207, type: 3}
   manaDropletPrefab: {fileID: 6605989218232141728, guid: 0e118febb1e3242028b4109df1ac5900, type: 3}
   healthPickup: {fileID: 6529273264569416787, guid: 36210951489a6436396d9ef0b1a4e8ef, type: 3}
+  donutProjectilesPrefab1: {fileID: 6147130743222786969, guid: e35d83f9cfea942169bff13a581fb6c6, type: 3}
+  donutProjectilesPrefab2: {fileID: 1461068752121046827, guid: 2984f54b7743f4a40b7c5537eea9da09, type: 3}
   DonutEnemyAnimator: {fileID: 6536627813246210616}
 --- !u!82 &754234647754297428
 AudioSource:
