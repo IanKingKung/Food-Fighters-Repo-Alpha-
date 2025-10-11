@@ -33,11 +33,17 @@ public class DonutManBehavior : MonoBehaviour
     public GameObject plateHitEffect;
     public GameObject donutDeathEffect;
 
-    //loot
+    //loot and drops 
     public GameObject coinPrefab;
     public GameObject ammoPlatePrefab;
     public GameObject manaDropletPrefab;
     public GameObject healthPickup;
+
+    //donut projectiles
+    public GameObject donutProjectilesPrefab1;      //pink donut
+    public GameObject donutProjectilesPrefab2;    //brown donut
+    private float LaunchForce = 3.5f;
+
 
     //animations
     public Animator DonutEnemyAnimator;
@@ -131,9 +137,21 @@ public class DonutManBehavior : MonoBehaviour
         Instantiate(healthPickup, transform.position, transform.rotation);
         // Instantiate(healthPickup, transform.position, transform.rotation);
 
-
         Instantiate(donutDeathEffect, transform.position, transform.rotation);
         Destroy(gameObject);
+
+        //don't forget about the donut bombs!
+        LaunchProjectiles();
+    }
+
+    //Make own separate function to spawn donut projectiles
+    private void LaunchProjectiles()
+    {
+        GameObject proj1 = Instantiate(donutProjectilesPrefab1, transform.position + new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+        GameObject proj2 = Instantiate(donutProjectilesPrefab1, transform.position + new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+        proj1.GetComponent<Rigidbody>().AddForce(Vector3.up * 2f, ForceMode.Impulse);
+        proj2.GetComponent<Rigidbody>().AddForce(Vector3.up * 2f, ForceMode.Impulse);
+
     }
 
 }
