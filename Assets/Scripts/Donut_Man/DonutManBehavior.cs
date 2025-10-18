@@ -43,7 +43,7 @@ public class DonutManBehavior : MonoBehaviour
     //donut projectiles
     public GameObject donutProjectilesPrefab1;      //pink donut
     public GameObject donutProjectilesPrefab2;    //brown donut
-    private float LaunchForce = 3.5f;
+    private float LaunchForce = 2.0f;
 
 
     //animations
@@ -150,8 +150,8 @@ public class DonutManBehavior : MonoBehaviour
     {
         GameObject proj1 = Instantiate(donutProjectilesPrefab1, transform.position + new Vector3(0f, 1.5f, 0f), Quaternion.identity);
         GameObject proj2 = Instantiate(donutProjectilesPrefab1, transform.position + new Vector3(0f, 1.5f, 0f), Quaternion.identity);
-        proj1.GetComponent<Rigidbody>().AddForce(Vector3.up * 2f, ForceMode.Impulse);
-        proj2.GetComponent<Rigidbody>().AddForce(Vector3.up * 2f, ForceMode.Impulse);
+        proj1.GetComponent<Rigidbody>().AddForce(Vector3.up * LaunchForce, ForceMode.Impulse);
+        proj2.GetComponent<Rigidbody>().AddForce(Vector3.up * LaunchForce, ForceMode.Impulse);
 
     }
 
