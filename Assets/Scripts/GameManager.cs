@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
 
 
     //coin information
-    int numCoins;
-        int maxCoins = 10000;
+    public static int numCoins;
+    int maxCoins = 10000;
 
     //play death screen if user dies
         public TextMeshProUGUI deathScreen;
