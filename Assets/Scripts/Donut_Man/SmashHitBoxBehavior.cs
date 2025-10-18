@@ -24,6 +24,7 @@ public class SmashHitBoxBehavior : MonoBehaviour
         {
             // Debug.Log("Player in Smash");
             playerControllerScript.PlayerTakeDamage(smashDamage);
+            playerControllerScript.StartCoroutine(playerControllerScript.SlowEffect(2)); //apply slow down effect to player
         }
     }
 }

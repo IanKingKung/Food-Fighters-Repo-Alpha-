@@ -135,17 +135,17 @@ public class PlayerController : MonoBehaviour
         }
 
         //reduce our cooldowns
-            if (!canSpawnPlate)
+        if (!canSpawnPlate)
+        {
+            spawnPlateCooldown -= Time.deltaTime;
+            //reset spawnPlateCooldown
+            if (spawnPlateCooldown <= 0f)
             {
-                spawnPlateCooldown -= Time.deltaTime;
-                //reset spawnPlateCooldown
-                if (spawnPlateCooldown <= 0f)
-                {
-                    canSpawnPlate = true;
-                    spawnPlateCooldown = 0.2f;
-                }
-
+                canSpawnPlate = true;
+                spawnPlateCooldown = 0.2f;
             }
+
+        }
         if (!canSpawnBigPot)
         {
             spawnBigPotCooldown -= Time.deltaTime;
@@ -351,8 +351,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // public void SlowEffect(int num)
-    // {
-    //     speed -= num;
-    // }
+
+    //Create a slow effect for the player after being hit by donut man melee
+    public IEnumerator SlowEffect(int num)
+    {
+        speed -= num;
+        yield return new WaitForSeconds(2.5f);
+        speed += num;
+    }
 }
