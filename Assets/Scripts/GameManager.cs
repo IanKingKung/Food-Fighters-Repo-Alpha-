@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 
 public class GameManager : MonoBehaviour
@@ -83,7 +84,9 @@ public class GameManager : MonoBehaviour
 
     void DestroyAllEnemies()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");  //destroy all enemies 
+        List<GameObject> enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));  //destroy all enemies 
+        enemies.AddRange(GameObject.FindGameObjectsWithTag("DonutEnemy"));
+       
         foreach (GameObject enemy in enemies)
         {
             Destroy(enemy);
