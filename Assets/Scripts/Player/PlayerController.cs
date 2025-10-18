@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip knifeUnsheath;
     public AudioClip playerDash;
 
+    //player effects
+    public GameObject playerhitEffect;
+
     void Start()
     {
         isAlive = true;
@@ -327,7 +330,7 @@ public class PlayerController : MonoBehaviour
         if (healthBar != null)
         {
             currentHealth -= num;
-
+            Instantiate(playerhitEffect, transform.position, Quaternion.identity);
             healthBar.UpdatePlayerHealthBar(maxHealth, currentHealth);    //update health bar when taking damage
         }
         else

@@ -656,6 +656,7 @@ MonoBehaviour:
   bigPotSound: {fileID: 8300000, guid: b144ffe1120d54b77af1e9d12783f8ac, type: 3}
   knifeUnsheath: {fileID: 8300000, guid: 7e8dd3644485544bd8bf5dd5fcadcfa1, type: 3}
   playerDash: {fileID: 8300000, guid: 8bb2d1911e818457796505b7afb212fe, type: 3}
+  playerhitEffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!4 &46045410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5446477390807014368, guid: b713585f24f940f4eadb10319818ef40, type: 3}
@@ -24010,7 +24011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446477390807014368, guid: b713585f24f940f4eadb10319818ef40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.66
+      value: -7.4
       objectReference: {fileID: 0}
     - target: {fileID: 5446477390807014368, guid: b713585f24f940f4eadb10319818ef40, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24018,7 +24019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446477390807014368, guid: b713585f24f940f4eadb10319818ef40, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.48
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 5446477390807014368, guid: b713585f24f940f4eadb10319818ef40, type: 3}
       propertyPath: m_LocalRotation.w
