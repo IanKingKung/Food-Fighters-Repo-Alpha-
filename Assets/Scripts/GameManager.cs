@@ -3,8 +3,17 @@ using TMPro;
 using System.Collections.Generic;
 
 
+public enum GameState
+{
+    Playing,        //enemy's active, player active
+    BuyPhase,       //enemy's inactive, player can buy items
+    GameOver        //player is dead, game over
+}   
+
+
 public class GameManager : MonoBehaviour
 {
+    [Header("References")]
     public GameObject appleEnemyPrefab;
     public GameObject bananaEnemyPrefab;
     public GameObject donutEnemyPrefab;
@@ -22,8 +31,8 @@ public class GameManager : MonoBehaviour
     int maxCoins = 10000;
 
     //play death screen if user dies
-        public TextMeshProUGUI deathScreen;
-//make this change
+    public TextMeshProUGUI deathScreen;
+    //make this change
     void Start()
     {
         isGameOver = false;
@@ -35,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(!playerControllerScript.isAlive)
+        if (!playerControllerScript.isAlive)
         {
             isGameOver = true;
 
@@ -43,7 +52,7 @@ public class GameManager : MonoBehaviour
             deathScreen.gameObject.SetActive(true);
         }
 
-        if(isGameOver)
+        if (isGameOver)
         {
             DestroyAllEnemies();    //destroy all enemies when game is over
         }
@@ -51,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnApple()
     {
-        if(playerControllerScript.isAlive && !isGameOver)
+        if (playerControllerScript.isAlive && !isGameOver)
         {
             float xSpawnPos = Random.Range(-15f, 3f);
             float zSpawnPos = Random.Range(-5f, 13f);
@@ -86,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
         List<GameObject> enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));  //destroy all enemies 
         enemies.AddRange(GameObject.FindGameObjectsWithTag("DonutEnemy"));
-       
+
         foreach (GameObject enemy in enemies)
         {
             Destroy(enemy);
@@ -96,11 +105,11 @@ public class GameManager : MonoBehaviour
     //Coin behavior
     public void incrementCoins()
     {
-        if(numCoins + 1 <= maxCoins) numCoins++;
+        if (numCoins + 1 <= maxCoins) numCoins++;
     }
     public void increaseCoins(int num)
     {
-        if(numCoins + num <= maxCoins) numCoins = maxCoins;
+        if (numCoins + num <= maxCoins) numCoins = maxCoins;
         else numCoins += num;
     }
     public int GetNumCoins()
