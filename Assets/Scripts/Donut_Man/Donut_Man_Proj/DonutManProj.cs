@@ -52,7 +52,7 @@ public class DonutManProj : MonoBehaviour
             playerControllerScript.PlayerTakeDamage(projDamage);
         }
         audioSource.PlayOneShot(explosionSound);
-        Destroy(gameObject, 0.1f);  //destroy projectile after a short delay for sound
+        Destroy(gameObject, 0.2f);  //destroy projectile after a short delay for sound
         
     }
 }
