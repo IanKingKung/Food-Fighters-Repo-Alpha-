@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     //player effects
     public GameObject playerhitEffect;
+    public GameObject stunEffect;
 
     void Start()
     {
@@ -358,6 +359,7 @@ public class PlayerController : MonoBehaviour
     //Create a slow effect for the player after being hit by donut man melee
     public IEnumerator SlowEffect(int num)
     {
+        Instantiate(stunEffect, transform.position + new Vector3(0f, 0.7f, 0f), Quaternion.identity);
         speed -= num;
         yield return new WaitForSeconds(2.5f);
         speed += num;

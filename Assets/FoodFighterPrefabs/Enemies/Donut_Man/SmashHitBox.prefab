@@ -67,4 +67,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControllerScript: {fileID: 0}
-  smashHitEffect: {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
+  smashHitEffect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
+  smashDamage: 15
