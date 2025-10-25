@@ -13,6 +13,14 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+    /*
+
+        Game Manager doesn't need to spawn enemies or keep istances of prefabs
+        Remove: enemy prefabs (not player), delete spawn intervals 
+
+
+
+    */
     [Header("References")]
     public GameObject appleEnemyPrefab;
     public GameObject bananaEnemyPrefab;
