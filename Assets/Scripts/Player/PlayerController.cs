@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
 
     //player's health
     [SerializeField] private PlayerHealthBar healthBar;
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] private int currentHealth;
+    [SerializeField] public int maxHealth = 100;
+    [SerializeField] public int currentHealth;
     public bool isAlive = true;
     public bool isFullHealth = false;
 

@@ -23,7 +23,7 @@ public class HealthPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && playerControllerScript.currentHealth < playerControllerScript.maxHealth)
         {
             Destroy(gameObject);
             playerControllerScript.AddHealth(15);
