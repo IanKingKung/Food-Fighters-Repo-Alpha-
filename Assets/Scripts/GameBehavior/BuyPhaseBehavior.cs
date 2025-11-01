@@ -61,7 +61,7 @@ public class BuyPhaseBehavior : MonoBehaviour
     void BuyHealth()
     {
         int cost = 5;
-        if (GameManager.numCoins >= cost)
+        if (GameManager.numCoins >= cost && playerControllerScript.currentHealth < playerControllerScript.maxHealth)
         {
             GameManager.numCoins -= cost;
             playerControllerScript.AddHealth(10);
@@ -72,7 +72,7 @@ public class BuyPhaseBehavior : MonoBehaviour
     void BuyPlates()
     {
         int cost = 2;
-        if (GameManager.numCoins >= cost)
+        if (GameManager.numCoins >= cost && playerControllerScript.numPlates < playerControllerScript.maxPlates)
         {
             GameManager.numCoins -= cost;
             playerControllerScript.AddPlates(5);
@@ -125,7 +125,7 @@ public class BuyPhaseBehavior : MonoBehaviour
     void BuyBigPotSpell()
     {
         int cost = 30;
-        if (GameManager.numCoins >= cost)
+        if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsBigPot)
         {
             GameManager.numCoins -= cost;
             playerControllerScript.PlayerOwnsBigPot = true;
@@ -136,7 +136,7 @@ public class BuyPhaseBehavior : MonoBehaviour
     void BuyKnifeShieldSpell()
     {
         int cost = 50;
-        if (GameManager.numCoins >= cost)
+        if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsKnifeShield)
         {
             GameManager.numCoins -= cost;
             playerControllerScript.PlayerOwnsKnifeShield = true;
@@ -147,7 +147,7 @@ public class BuyPhaseBehavior : MonoBehaviour
     void BuyDash()
     {
         int cost = 15;
-        if (GameManager.numCoins >= cost)
+        if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsDash)
         {
             GameManager.numCoins -= cost;
             playerControllerScript.PlayerOwnsDash = true;

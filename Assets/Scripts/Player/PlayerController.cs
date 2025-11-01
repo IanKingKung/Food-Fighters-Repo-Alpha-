@@ -66,7 +66,9 @@ public class PlayerController : MonoBehaviour
     public GameObject playerhitEffect;
     public GameObject stunEffect;
 
-    //spells and abilities that player owns
+    //buy phase booleans
+    public bool playerInBuyPhase = false;
+
     public bool PlayerOwnsBigPot = false;
     public bool PlayerOwnsKnifeShield = false;
     public bool PlayerOwnsDash = false;
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButton(0) && isAlive && canSpawnPlate && hasPlates)
+        if (Input.GetMouseButton(0) && isAlive && canSpawnPlate && hasPlates && !playerInBuyPhase)
         {
             SpawnPlate();
             canSpawnPlate = false;
@@ -298,9 +300,9 @@ public class PlayerController : MonoBehaviour
     }
     public void AddPlates(int amount)
     {
-        if (numPlates + amount >= 30)
+        if (numPlates + amount >= maxPlates)
         {
-            numPlates = 30;
+            numPlates = maxPlates;
         }
         else
         {

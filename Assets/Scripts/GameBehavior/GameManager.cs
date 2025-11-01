@@ -78,22 +78,25 @@ public class GameManager : MonoBehaviour
     //buy phase where user gets 25 seconds to buy their upgrades
     IEnumerator BuyPhase()
     {
-        Debug.Log($"Buy phase started for {gameRound}");
+        // Debug.Log($"Buy phase started for {gameRound}");
         currentState = GameState.BuyPhase;
 
-        float buyDuration = 10f;
+        playerControllerScript.playerInBuyPhase = true;
+
+        float buyDuration = 25f;
         buyPhaseUI.Initialize(this, buyDuration);
 
         yield return new WaitForSeconds(buyDuration);
         buyPhaseUI.gameObject.SetActive(false);
 
-        Debug.Log("Bug phase ended");
+        // Debug.Log("Bug phase ended");
+        playerControllerScript.playerInBuyPhase = false;
 
         gameRound++;
         if (gameRound >= maxRound)
         {
             //CONGRATS YOU WON THE GAME
-            Debug.Log("Game Won");
+            // Debug.Log("Game Won");
             
         }
         else

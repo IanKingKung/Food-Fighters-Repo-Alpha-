@@ -60,6 +60,7 @@ public class EnemySpawnerBehavior : MonoBehaviour
         StartCoroutine(SpawnBanana(numBananas, bananaSpawnInterval));
         StartCoroutine(SpawnDonutEnemy(numDonuts, donutManSpawnInterval));
 
+        yield return new WaitForSeconds(6f);    //give player time to kill enemies
         yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("DonutEnemy").Length == 0);
 
         roundOver = true;
