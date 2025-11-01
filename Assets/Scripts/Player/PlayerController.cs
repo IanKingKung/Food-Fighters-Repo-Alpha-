@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     //spawn plate cooldown & conditions
     private bool canSpawnPlate = false;     //spawn plate cooldown
-    private float spawnPlateCooldown = 0.5f;
+    public float spawnPlateCooldown = 1f;
     public int maxPlates = 30;
     public int numPlates;
     private bool hasPlates = true;
@@ -65,6 +65,12 @@ public class PlayerController : MonoBehaviour
     //player effects
     public GameObject playerhitEffect;
     public GameObject stunEffect;
+
+    //spells and abilities that player owns
+    public bool PlayerOwnsBigPot = false;
+    public bool PlayerOwnsKnifeShield = false;
+    public bool PlayerOwnsDash = false;
+
 
     void Start()
     {
@@ -112,17 +118,17 @@ public class PlayerController : MonoBehaviour
             canSpawnPlate = false;
             numPlates--;
         }
-        if (Input.GetKeyDown(KeyCode.E) && isAlive && hasMagic && canSpawnBigPot)
+        if (Input.GetKeyDown(KeyCode.E) && isAlive && hasMagic && canSpawnBigPot && PlayerOwnsBigPot)
         {
             SpawnBigPot();
             canSpawnBigPot = false;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && PlayerOwnsDash)
         {
             StartCoroutine(Dash());
             audioSource.PlayOneShot(playerDash);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && hasMagic && isAlive && !isShieldActive)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && hasMagic && isAlive && !isShieldActive && PlayerOwnsKnifeShield)
         {
             Instantiate(KnifeShieldSummoningEffect, transform.position, Quaternion.identity);
             StartCoroutine(SpawnKnifeShield());
@@ -257,7 +263,7 @@ public class PlayerController : MonoBehaviour
             knifeShield.SetActive(true);
             audioSource.PlayOneShot(knifeUnsheath);
             isShieldActive = true;
-            yield return new WaitForSeconds(3);     //how long knife shield is
+            yield return new WaitForSeconds(5);     //how long knife shield is
             knifeShield.SetActive(false);
             isShieldActive = false;
         }

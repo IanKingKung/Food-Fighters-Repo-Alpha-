@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     //gain access to enemySpawner
     public EnemySpawnerBehavior enemySpawner;
 
+    //access to buyphase UI
+    public BuyPhaseBehavior buyPhaseUI;
+
 
     void Start()
     {
@@ -77,7 +80,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Buy phase started for {gameRound}");
         currentState = GameState.BuyPhase;
-        yield return new WaitForSeconds(3f);
+
+        float buyDuration = 10f;
+        buyPhaseUI.Initialize(this, buyDuration);
+
+        yield return new WaitForSeconds(buyDuration);
+        buyPhaseUI.gameObject.SetActive(false);
+
         Debug.Log("Bug phase ended");
 
         gameRound++;
