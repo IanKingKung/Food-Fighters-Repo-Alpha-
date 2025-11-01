@@ -33,12 +33,12 @@ public class EnemySpawnerBehavior : MonoBehaviour
         - GameManager should call functions of this class to spawn in enemies
     */
 
-    //set up all of our new spawn rates and numbers of enemies to spawn
-    void Start()
-    {
-        BeginRound();
-    }
+    // void Start()
+    // {
+    //     BeginRound();
+    // }
 
+    //set up all of our new spawn rates and numbers of enemies to spawn
     void BeginRound()
     {
         numApples = 2 + round * 3;
