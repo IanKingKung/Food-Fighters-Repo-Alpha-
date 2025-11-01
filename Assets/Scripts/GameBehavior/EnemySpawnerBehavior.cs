@@ -21,7 +21,6 @@ public class EnemySpawnerBehavior : MonoBehaviour
     //keep track of enemies remaining and rounds
     public int enemiesRemaining;
     public bool roundOver;
-    public int round = 1;
 
     //keep reference to game manager
     public GameManager gameManager;
@@ -39,7 +38,7 @@ public class EnemySpawnerBehavior : MonoBehaviour
     // }
 
     //set up all of our new spawn rates and numbers of enemies to spawn
-    void BeginRound()
+    void BeginRound(int round)
     {
         numApples = 2 + round * 3;
         numBananas = 1 + round * 2;

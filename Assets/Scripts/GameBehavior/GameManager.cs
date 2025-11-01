@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver; //bool to determine if the game is over
 
-
     //coin information
     public static int numCoins;
     int maxCoins = 10000;
@@ -56,7 +55,9 @@ public class GameManager : MonoBehaviour
             DestroyAllEnemies();
         }
     }
+    
 
+    //destroy all enemy game objects when player dies
     void DestroyAllEnemies()
     {
         List<GameObject> enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));  //destroy all enemies 
