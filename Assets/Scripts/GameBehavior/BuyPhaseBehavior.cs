@@ -24,6 +24,10 @@ public class BuyPhaseBehavior : MonoBehaviour
     private GameManager gameManager;
     public PlayerController playerControllerScript;
 
+    //access to sound
+    public AudioSource audioSource;
+    public AudioClip buySound;
+
     public void Initialize(GameManager manager, float duration)
     {
         gameManager = manager;
@@ -42,7 +46,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         buyBigPotSpell.onClick.AddListener(() => BuyBigPotSpell());
         buyDash.onClick.AddListener(() => BuyDash());
         buyKnifeShieldSpell.onClick.AddListener(() => BuyKnifeShieldSpell());
-
+        
     }
 
     void Update()
@@ -63,6 +67,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 5;
         if (GameManager.numCoins >= cost && playerControllerScript.currentHealth < playerControllerScript.maxHealth)
         {
+            audioSource.PlayOneShot(buySound);
             GameManager.numCoins -= cost;
             playerControllerScript.AddHealth(10);
             // coinText.text = $"Coins: {GameManager.numCoins}";
@@ -74,6 +79,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 2;
         if (GameManager.numCoins >= cost && playerControllerScript.numPlates < playerControllerScript.maxPlates)
         {
+            audioSource.PlayOneShot(buySound);
             GameManager.numCoins -= cost;
             playerControllerScript.AddPlates(5);
             // coinText.text = $"Coins: {GameManager.numCoins}";
@@ -85,10 +91,11 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 15;
         if (GameManager.numCoins >= cost)
         {
-            GameManager.numCoins -= cost;
-            if (playerControllerScript.spawnPlateCooldown - 0.1 >= 0.1)
+            if (playerControllerScript.spawnPlateCooldown - 0.05 >= 0.1)
             {
-                playerControllerScript.spawnPlateCooldown -= 0.1f;
+                GameManager.numCoins -= cost;
+                audioSource.PlayOneShot(buySound);
+                playerControllerScript.spawnPlateCooldown -= 0.05f;
             }
             // coinText.text = $"Coins: {GameManager.numCoins}";
         }
@@ -102,6 +109,7 @@ public class BuyPhaseBehavior : MonoBehaviour
             GameManager.numCoins -= cost;
             if (playerControllerScript.maxPlates + 5 <= 100)
             {
+                audioSource.PlayOneShot(buySound);
                 playerControllerScript.maxPlates += 5;
             }
             // coinText.text = $"Coins: {GameManager.numCoins}";
@@ -116,6 +124,7 @@ public class BuyPhaseBehavior : MonoBehaviour
             GameManager.numCoins -= cost;
             if (playerControllerScript.maxMagic + 10 <= 200)
             {
+                audioSource.PlayOneShot(buySound);
                 playerControllerScript.maxMagic += 5;
             }
             // coinText.text = $"Coins: {GameManager.numCoins}";
@@ -127,6 +136,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 30;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsBigPot)
         {
+            audioSource.PlayOneShot(buySound);
             GameManager.numCoins -= cost;
             playerControllerScript.PlayerOwnsBigPot = true;
             // coinText.text = $"Coins: {GameManager.numCoins}";
@@ -138,6 +148,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 50;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsKnifeShield)
         {
+            audioSource.PlayOneShot(buySound);
             GameManager.numCoins -= cost;
             playerControllerScript.PlayerOwnsKnifeShield = true;
             // coinText.text = $"Coins: {GameManager.numCoins}";
@@ -149,6 +160,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 15;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsDash)
         {
+            audioSource.PlayOneShot(buySound);
             GameManager.numCoins -= cost;
             playerControllerScript.PlayerOwnsDash = true;
             // coinText.text = $"Coins: {GameManager.numCoins}";

@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     //spawn plate cooldown & conditions
     private bool canSpawnPlate = false;     //spawn plate cooldown
     public float spawnPlateCooldown = 1f;
+    private float spawnPlateCool;
     public int maxPlates = 30;
     public int numPlates;
     private bool hasPlates = true;
@@ -85,6 +86,7 @@ public class PlayerController : MonoBehaviour
         currentMagic = maxMagic;
         numPlates = maxPlates;
         isShieldActive = false;
+        spawnPlateCool = spawnBigPotCooldown;
 
         rb = GetComponent<Rigidbody>();     //the player's rigidbody
         trail = GetComponent<TrailRenderer>();  //access player's trail
@@ -130,7 +132,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Dash());
             audioSource.PlayOneShot(playerDash);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && hasMagic && isAlive && !isShieldActive && PlayerOwnsKnifeShield)
+        if (Input.GetKeyDown(KeyCode.Q) && hasMagic && isAlive && !isShieldActive && PlayerOwnsKnifeShield)
         {
             Instantiate(KnifeShieldSummoningEffect, transform.position, Quaternion.identity);
             StartCoroutine(SpawnKnifeShield());
@@ -149,12 +151,12 @@ public class PlayerController : MonoBehaviour
         //reduce our cooldowns
         if (!canSpawnPlate)
         {
-            spawnPlateCooldown -= Time.deltaTime;
+            spawnPlateCool -= Time.deltaTime;
             //reset spawnPlateCooldown
-            if (spawnPlateCooldown <= 0f)
+            if (spawnPlateCool <= 0f)
             {
                 canSpawnPlate = true;
-                spawnPlateCooldown = 0.2f;
+                spawnPlateCool = spawnPlateCooldown;
             }
 
         }

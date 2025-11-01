@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public GameState currentState = GameState.Playing;
 
     //coin information
-    public static int numCoins;
+    public static int numCoins = 1000;
     int maxCoins = 10000;
 
     //play death screen if user dies
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
         playerControllerScript.playerInBuyPhase = true;
 
-        float buyDuration = 25f;
+        float buyDuration = 20f;
         buyPhaseUI.Initialize(this, buyDuration);
 
         yield return new WaitForSeconds(buyDuration);
