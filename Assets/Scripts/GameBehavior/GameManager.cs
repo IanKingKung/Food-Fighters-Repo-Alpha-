@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     //keep track of game
     public bool isGameOver; //bool to determine if the game is over
     public int gameRound;
-    private int maxRound = 2;
+    private int maxRound = 13;
     public GameState currentState = GameState.Playing;
 
     //coin information
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         if (!playerControllerScript.isAlive)
         {
             isGameOver = true;
+            currentState = GameState.GameOver;
             DestroyAllEnemies();
             deathScreen.gameObject.SetActive(true);
         }
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
     //play the game round
     public void PlayRound()
     {
+        Debug.Log($"StartRound {gameRound}");
         if (isGameOver) return;
         currentState = GameState.Playing;
         enemySpawner.BeginRound(gameRound);
@@ -73,9 +75,10 @@ public class GameManager : MonoBehaviour
     //buy phase where user gets 25 seconds to buy their upgrades
     IEnumerator BuyPhase()
     {
-        Debug.Log("Buy phase started");
+        Debug.Log($"Buy phase started for {gameRound}");
         currentState = GameState.BuyPhase;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Bug phase ended");
 
         gameRound++;
         if (gameRound >= maxRound)

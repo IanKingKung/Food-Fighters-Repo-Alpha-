@@ -40,9 +40,12 @@ public class EnemySpawnerBehavior : MonoBehaviour
     //set up all of our new spawn rates and numbers of enemies to spawn
     public void BeginRound(int round)
     {
+        
+        roundOver = false; 
+
         numApples = 2 + round * 3;
-        numBananas = 1 + round * 2;
-        numDonuts = 1 + (round-1) * 2;
+        numBananas = 1 + (round-3) * 2;     //spawn bananas after round 3
+        numDonuts = 1 + (round-7) * 2;      //spawn donuts after round 7
 
         appleSpawnInterval = Mathf.Max(0.5f, 2f - 0.2f * round);
         bananaSpawnInterval = Mathf.Max(2f, 8f - 0.5f * round);
