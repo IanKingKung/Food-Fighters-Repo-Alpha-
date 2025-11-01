@@ -11,48 +11,58 @@ public class EnemySpawnerBehavior : MonoBehaviour
 
     //enemy spawn rate/number variables
     private float appleSpawnInterval = 2f;
-    private float bananaSpawnInterval = 8f;
-    private float donutManSpawnInterval = 15f;
+    private float bananaSpawnInterval = 5f;
+    private float donutManSpawnInterval = 8f;
 
-    //keep track of enemies remaining
+    public int numApples;
+    public int numBananas;
+    public int numDonuts;
+
+    //keep track of enemies remaining and rounds
     public int enemiesRemaining;
     public bool roundOver;
+    public int round = 1;
 
     //keep reference to game manager
     public GameManager gameManager;
 
 
-    //should destroy all enemies if player dies (get called by gameManager?)
+    //should destroy all enemies if player dies (get called by gameManager?) YES!
     /*
         - GameManager keep track of coins and state of game (if game over or not)
         - GameManager should call functions of this class to spawn in enemies
     */
 
+    //set up all of our new spawn rates and numbers of enemies to spawn
     void Start()
     {
-        SpawnEnemies();
+        BeginRound();
     }
 
-    void Update()
+    void BeginRound()
     {
+        numApples = 2 + round * 3;
+        numBananas = 1 + round * 2;
+        numDonuts = 1 + (round-1) * 2;
 
+        appleSpawnInterval = Mathf.Max(0.5f, 2f - 0.2f * round);
+        bananaSpawnInterval = Mathf.Max(2f, 8f - 0.5f * round);
+        donutManSpawnInterval = Mathf.Max(3f, 15f - 1f * round);
+
+        StartCoroutine(SpawnEnemies());
     }
 
-    void UpdateSpawnRate()
+    IEnumerator SpawnEnemies()
     {
-        // Cancel old invokes
-        CancelInvoke(nameof(SpawnApple));
-        CancelInvoke(nameof(SpawnBanana));
-        CancelInvoke(nameof(SpawnDonutEnemy));
+        StartCoroutine(SpawnApple(numApples, appleSpawnInterval));
+        StartCoroutine(SpawnBanana(numBananas, bananaSpawnInterval));
+        StartCoroutine(SpawnDonutEnemy(numDonuts, donutManSpawnInterval));
 
-        //TODO
-    }
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("DonutEnemy").Length == 0);
 
-    void SpawnEnemies()
-    {
-        StartCoroutine(SpawnApple(2, appleSpawnInterval));
-        StartCoroutine(SpawnBanana(2, bananaSpawnInterval));
-        StartCoroutine(SpawnDonutEnemy(2, donutManSpawnInterval));
+        roundOver = true;
+
+        //now enter buy phase
     }
 
     //Spawn enemies

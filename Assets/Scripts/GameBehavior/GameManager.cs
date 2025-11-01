@@ -10,16 +10,11 @@ public enum GameState
     GameOver        //player is dead, game over
 }   
 
-
 public class GameManager : MonoBehaviour
 {
     /*
-
         Game Manager doesn't need to spawn enemies or keep istances of prefabs
         Remove: enemy prefabs (not player), delete spawn intervals 
-
-
-
     */
     [Header("References")]
     public GameObject player;
@@ -35,7 +30,11 @@ public class GameManager : MonoBehaviour
 
     //play death screen if user dies
     public TextMeshProUGUI deathScreen;
-    //make this change
+
+    //gain access to enemySpawner
+    public EnemySpawnerBehavior enemySpawner;
+
+
     void Start()
     {
         isGameOver = false;
