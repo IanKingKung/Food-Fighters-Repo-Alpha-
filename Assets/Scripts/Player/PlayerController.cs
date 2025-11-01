@@ -257,7 +257,7 @@ public class PlayerController : MonoBehaviour
             knifeShield.SetActive(true);
             audioSource.PlayOneShot(knifeUnsheath);
             isShieldActive = true;
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(3);     //how long knife shield is
             knifeShield.SetActive(false);
             isShieldActive = false;
         }

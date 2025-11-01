@@ -757,6 +757,9 @@ MonoBehaviour:
   appleEnemyPrefab: {fileID: 288923407887767821, guid: 3b90128a973a64e309826670d9b08380, type: 3}
   bananaEnemyPrefab: {fileID: 1736027964692348590, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
   donutEnemyPrefab: {fileID: 485104567650036610, guid: 3a390de1142804211894aaecc9b13761, type: 3}
+  numApples: 0
+  numBananas: 0
+  numDonuts: 0
   enemiesRemaining: 0
   roundOver: 0
   gameManager: {fileID: 945791942}
@@ -21791,7 +21794,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 46045401}
   isGameOver: 0
+  gameRound: 0
+  currentState: 0
   deathScreen: {fileID: 2084782304}
+  enemySpawner: {fileID: 37433221}
 --- !u!4 &945791943
 Transform:
   m_ObjectHideFlags: 0

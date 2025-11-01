@@ -38,7 +38,7 @@ public class EnemySpawnerBehavior : MonoBehaviour
     // }
 
     //set up all of our new spawn rates and numbers of enemies to spawn
-    void BeginRound(int round)
+    public void BeginRound(int round)
     {
         numApples = 2 + round * 3;
         numBananas = 1 + round * 2;

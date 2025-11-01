@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
 
 
 public enum GameState
@@ -19,9 +20,12 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     public GameObject player;
     private PlayerController playerControllerScript;
-    private float startDelay = 2f;
 
+    //keep track of game
     public bool isGameOver; //bool to determine if the game is over
+    public int gameRound;
+    private int maxRound = 2;
+    public GameState currentState = GameState.Playing;
 
     //coin information
     public static int numCoins;
@@ -36,8 +40,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        gameRound = 1; 
         isGameOver = false;
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+        PlayRound();
     }
 
     void Update()
@@ -46,16 +52,45 @@ public class GameManager : MonoBehaviour
         if (!playerControllerScript.isAlive)
         {
             isGameOver = true;
+            DestroyAllEnemies();
             deathScreen.gameObject.SetActive(true);
         }
 
-        //destroy all enemies when game is over
-        if (isGameOver)
+        if (currentState == GameState.Playing && enemySpawner.roundOver)
         {
-            DestroyAllEnemies();
+            StartCoroutine(BuyPhase());
         }
     }
-    
+
+    //play the game round
+    public void PlayRound()
+    {
+        if (isGameOver) return;
+        currentState = GameState.Playing;
+        enemySpawner.BeginRound(gameRound);
+    }
+
+    //buy phase where user gets 25 seconds to buy their upgrades
+    IEnumerator BuyPhase()
+    {
+        Debug.Log("Buy phase started");
+        currentState = GameState.BuyPhase;
+        yield return new WaitForSeconds(5f);
+
+        gameRound++;
+        if (gameRound >= maxRound)
+        {
+            //CONGRATS YOU WON THE GAME
+            Debug.Log("Game Won");
+            
+        }
+        else
+        {
+            PlayRound();
+        }
+
+    }
+
 
     //destroy all enemy game objects when player dies
     void DestroyAllEnemies()
