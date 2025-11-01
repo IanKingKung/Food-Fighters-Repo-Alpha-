@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     //buy phase where user gets 25 seconds to buy their upgrades
     IEnumerator BuyPhase()
     {
+        DestroyAllEnemies();
         // Debug.Log($"Buy phase started for {gameRound}");
         currentState = GameState.BuyPhase;
 
@@ -112,6 +113,7 @@ public class GameManager : MonoBehaviour
     {
         List<GameObject> enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));  //destroy all enemies 
         enemies.AddRange(GameObject.FindGameObjectsWithTag("DonutEnemy"));
+        enemies.AddRange(GameObject.FindGameObjectsWithTag("FullBody"));
 
         foreach (GameObject enemy in enemies)
         {

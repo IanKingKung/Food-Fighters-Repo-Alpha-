@@ -40514,14 +40514,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana_Cannon(FullBody)
       objectReference: {fileID: 0}
-    - target: {fileID: 1736027964692348590, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736027964692348590, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.087393

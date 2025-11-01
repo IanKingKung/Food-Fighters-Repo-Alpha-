@@ -17,6 +17,7 @@ TagManager:
   - FxTemporaire
   - DonutEnemy
   - Health_P
+  - FullBody
   layers:
   - Default
   - TransparentFX

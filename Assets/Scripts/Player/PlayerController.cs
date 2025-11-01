@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         currentMagic = maxMagic;
         numPlates = maxPlates;
         isShieldActive = false;
-        spawnPlateCool = spawnBigPotCooldown;
+        spawnPlateCool = spawnPlateCooldown;
 
         rb = GetComponent<Rigidbody>();     //the player's rigidbody
         trail = GetComponent<TrailRenderer>();  //access player's trail
