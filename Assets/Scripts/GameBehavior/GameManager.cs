@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(buyDuration);
         buyPhaseUI.gameObject.SetActive(false);
 
-        // Debug.Log("Bug phase ended");
+        // Debug.Log("Buy phase ended");
         playerControllerScript.playerInBuyPhase = false;
 
         gameRound++;

@@ -19,6 +19,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     private float buyPhaseDuration;
     private float timeLeft;
+    public Button endBuyPhaseEarly;
 
     //access to gameManager and playerController
     private GameManager gameManager;
@@ -46,7 +47,10 @@ public class BuyPhaseBehavior : MonoBehaviour
         buyBigPotSpell.onClick.AddListener(() => BuyBigPotSpell());
         buyDash.onClick.AddListener(() => BuyDash());
         buyKnifeShieldSpell.onClick.AddListener(() => BuyKnifeShieldSpell());
-        
+
+        endBuyPhaseEarly.onClick.AddListener(() => EndBuyPhase());
+
+
     }
 
     void Update()
@@ -60,6 +64,19 @@ public class BuyPhaseBehavior : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    void EndBuyPhase()
+    {
+        timeLeft = 0;
+
+        gameObject.SetActive(false);
+
+        // Tell GameManager to continue
+        playerControllerScript.playerInBuyPhase = false;
+        gameManager.StopAllCoroutines();
+        gameManager.gameRound++;
+        gameManager.PlayRound();
     }
 
     void BuyHealth()
@@ -106,9 +123,10 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 5;
         if (GameManager.numCoins >= cost)
         {
-            GameManager.numCoins -= cost;
+            
             if (playerControllerScript.maxPlates + 5 <= 100)
             {
+                GameManager.numCoins -= cost;
                 audioSource.PlayOneShot(buySound);
                 playerControllerScript.maxPlates += 5;
             }
@@ -121,9 +139,10 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 10;
         if (GameManager.numCoins >= cost)
         {
-            GameManager.numCoins -= cost;
+            
             if (playerControllerScript.maxMagic + 10 <= 200)
             {
+                GameManager.numCoins -= cost;
                 audioSource.PlayOneShot(buySound);
                 playerControllerScript.maxMagic += 5;
             }
