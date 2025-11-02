@@ -24333,6 +24333,8 @@ MonoBehaviour:
   deathScreen: {fileID: 2084782304}
   enemySpawner: {fileID: 37433221}
   buyPhaseUI: {fileID: 1129313403}
+  audioSource: {fileID: 945791944}
+  bellSound: {fileID: 8300000, guid: 08f2aa95741bf49bb845278dd6509dab, type: 3}
 --- !u!4 &945791943
 Transform:
   m_ObjectHideFlags: 0
@@ -24361,7 +24363,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 0db66aa734e9b4b8d91557f1156823f1, type: 3}
   m_Resource: {fileID: 8300000, guid: 0db66aa734e9b4b8d91557f1156823f1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.16
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -40502,63 +40504,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1658963170287841532, guid: 3c17494097102d349b38158d0f1bfdc5, type: 3}
   m_PrefabInstance: {fileID: 1569589561}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1571895626
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1736027964692348590, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_Name
-      value: Banana_Cannon(FullBody)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.087393
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.33370423
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646546915751359411, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d23629dd60b3d4d57aa5a5dcf1ebffd9, type: 3}
 --- !u!4 &1572615394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3394925884671038472, guid: 8091417b1411d6b479a03c98f612254f, type: 3}
@@ -53733,5 +53678,4 @@ SceneRoots:
   - {fileID: 1174829570}
   - {fileID: 1173171827}
   - {fileID: 643382981}
-  - {fileID: 1571895626}
   - {fileID: 629350853}

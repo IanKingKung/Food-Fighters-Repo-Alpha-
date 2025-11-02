@@ -40,13 +40,17 @@ public class GameManager : MonoBehaviour
     //access to buyphase UI
     public BuyPhaseBehavior buyPhaseUI;
 
+    //access to its sound
+    public AudioSource audioSource;
+    public AudioClip bellSound;
+
 
     void Start()
     {
         gameRound = 1; 
         isGameOver = false;
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        PlayRound();
+        StartCoroutine(PlayRound());
     }
 
     void Update()
@@ -62,15 +66,18 @@ public class GameManager : MonoBehaviour
 
         if (currentState == GameState.Playing && enemySpawner.roundOver)
         {
+            enemySpawner.roundOver = false; 
             StartCoroutine(BuyPhase());
         }
     }
 
     //play the game round
-    public void PlayRound()
+    public IEnumerator PlayRound()
     {
+
+        yield return StartCoroutine(BellsRinging());
         Debug.Log($"StartRound {gameRound}");
-        if (isGameOver) return;
+        if (isGameOver) yield break;
         currentState = GameState.Playing;
         enemySpawner.BeginRound(gameRound);
     }
@@ -78,6 +85,8 @@ public class GameManager : MonoBehaviour
     //buy phase where user gets 25 seconds to buy their upgrades
     IEnumerator BuyPhase()
     {
+        enemySpawner.roundOver = false; 
+        yield return StartCoroutine(BellsRinging());
         DestroyAllEnemies();
         // Debug.Log($"Buy phase started for {gameRound}");
         currentState = GameState.BuyPhase;
@@ -98,13 +107,22 @@ public class GameManager : MonoBehaviour
         {
             //CONGRATS YOU WON THE GAME
             // Debug.Log("Game Won");
-            
+
         }
         else
         {
-            PlayRound();
+            yield return StartCoroutine(PlayRound());
         }
-
+    }
+    
+    IEnumerator BellsRinging()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            audioSource.PlayOneShot(bellSound);
+            yield return new WaitForSeconds(2.3f);
+        }
+        
     }
 
 

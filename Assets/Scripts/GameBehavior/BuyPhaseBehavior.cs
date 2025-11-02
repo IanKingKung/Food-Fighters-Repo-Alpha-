@@ -36,6 +36,17 @@ public class BuyPhaseBehavior : MonoBehaviour
         timeLeft = duration;
         gameObject.SetActive(true);
 
+        //Clear old listeners
+        healthUpgrade.onClick.RemoveAllListeners();
+        buyPlates.onClick.RemoveAllListeners();
+        plateSpeedUpgrade.onClick.RemoveAllListeners();
+        plateCapacityUpgrade.onClick.RemoveAllListeners();
+        manaCapacityUpgrade.onClick.RemoveAllListeners();
+        buyBigPotSpell.onClick.RemoveAllListeners();
+        buyDash.onClick.RemoveAllListeners();
+        buyKnifeShieldSpell.onClick.RemoveAllListeners();
+        endBuyPhaseEarly.onClick.RemoveAllListeners();
+
         // Update coin display
         // coinText.text = $"Coins: {GameManager.numCoins}";
         // Hook up button events
@@ -76,7 +87,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         playerControllerScript.playerInBuyPhase = false;
         gameManager.StopAllCoroutines();
         gameManager.gameRound++;
-        gameManager.PlayRound();
+        gameManager.StartCoroutine(gameManager.PlayRound());
     }
 
     void BuyHealth()
@@ -139,8 +150,7 @@ public class BuyPhaseBehavior : MonoBehaviour
         int cost = 10;
         if (GameManager.numCoins >= cost)
         {
-            
-            if (playerControllerScript.maxMagic + 10 <= 200)
+            if (playerControllerScript.maxMagic + 5 <= 200)
             {
                 GameManager.numCoins -= cost;
                 audioSource.PlayOneShot(buySound);
