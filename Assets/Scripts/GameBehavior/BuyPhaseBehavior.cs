@@ -92,7 +92,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyHealth()
     {
-        int cost = 3;
+        int cost = 2;
         if (GameManager.numCoins >= cost && playerControllerScript.currentHealth < playerControllerScript.maxHealth)
         {
             audioSource.PlayOneShot(buySound);
@@ -104,7 +104,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyPlates()
     {
-        int cost = 2;
+        int cost = 1;
         if (GameManager.numCoins >= cost && playerControllerScript.numPlates < playerControllerScript.maxPlates)
         {
             audioSource.PlayOneShot(buySound);
@@ -116,7 +116,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyPlateSpeed()
     {
-        int cost = 7;
+        int cost = 4;
         if (GameManager.numCoins >= cost)
         {
             if (playerControllerScript.spawnPlateCooldown - 0.05 >= 0.1)
@@ -131,7 +131,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void UpgradePlateCapacity()
     {
-        int cost = 5;
+        int cost = 3;
         if (GameManager.numCoins >= cost)
         {
             
@@ -147,7 +147,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyManaCapacity()
     {
-        int cost = 8;
+        int cost = 3;
         if (GameManager.numCoins >= cost)
         {
             if (playerControllerScript.maxMagic + 5 <= 200)
@@ -162,7 +162,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyBigPotSpell()
     {
-        int cost = 17;
+        int cost = 12;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsBigPot)
         {
             audioSource.PlayOneShot(buySound);
@@ -174,7 +174,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyKnifeShieldSpell()
     {
-        int cost = 25;
+        int cost = 18;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsKnifeShield)
         {
             audioSource.PlayOneShot(buySound);
@@ -186,7 +186,7 @@ public class BuyPhaseBehavior : MonoBehaviour
     
     void BuyDash()
     {
-        int cost = 12;
+        int cost = 8;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsDash)
         {
             audioSource.PlayOneShot(buySound);
