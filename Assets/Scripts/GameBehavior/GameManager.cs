@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
             //CONGRATS YOU WON THE GAME
             yield return StartCoroutine(SevenBellsRinging());
             SceneManager.LoadScene(nextSceneName);
-
+            yield break;
         }
         else
         {

@@ -28,7 +28,7 @@ IEnumerator PlayIntro()
     background.color = bgColor;
 
     float fadeDuration = 3f; 
-    float holdDuration = 2f;    //needs to be 40 seconds
+    float holdDuration = 40f;    //needs to be 40 seconds
 
     //Fade in
     float t = 0;

@@ -92,7 +92,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyHealth()
     {
-        int cost = 5;
+        int cost = 3;
         if (GameManager.numCoins >= cost && playerControllerScript.currentHealth < playerControllerScript.maxHealth)
         {
             audioSource.PlayOneShot(buySound);
@@ -116,7 +116,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyPlateSpeed()
     {
-        int cost = 15;
+        int cost = 7;
         if (GameManager.numCoins >= cost)
         {
             if (playerControllerScript.spawnPlateCooldown - 0.05 >= 0.1)
@@ -147,7 +147,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyManaCapacity()
     {
-        int cost = 10;
+        int cost = 8;
         if (GameManager.numCoins >= cost)
         {
             if (playerControllerScript.maxMagic + 5 <= 200)
@@ -162,7 +162,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyBigPotSpell()
     {
-        int cost = 30;
+        int cost = 17;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsBigPot)
         {
             audioSource.PlayOneShot(buySound);
@@ -174,7 +174,7 @@ public class BuyPhaseBehavior : MonoBehaviour
 
     void BuyKnifeShieldSpell()
     {
-        int cost = 50;
+        int cost = 25;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsKnifeShield)
         {
             audioSource.PlayOneShot(buySound);
@@ -186,7 +186,7 @@ public class BuyPhaseBehavior : MonoBehaviour
     
     void BuyDash()
     {
-        int cost = 15;
+        int cost = 12;
         if (GameManager.numCoins >= cost && !playerControllerScript.PlayerOwnsDash)
         {
             audioSource.PlayOneShot(buySound);
