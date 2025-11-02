@@ -409,7 +409,7 @@ MonoBehaviour:
   audioSource: {fileID: 6844862936554250463}
   shootSound: {fileID: 8300000, guid: d41ffb6e3291a4cdaa409ee4b192dadb, type: 3}
   spawnEffect: {fileID: 100008, guid: e3d819d8722fa1f47a3f68574b56dfb3, type: 3}
-  spawnSound: {fileID: 8300000, guid: 5185f4be40879411aaec7160f0fad3e1, type: 3}
+  spawnSound: {fileID: 8300000, guid: 49ec145fb5b8040c2b5ff8d85342f605, type: 3}
 --- !u!114 &6470424490078449376
 MonoBehaviour:
   m_ObjectHideFlags: 0

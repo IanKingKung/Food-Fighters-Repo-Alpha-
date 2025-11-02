@@ -167,7 +167,7 @@ MonoBehaviour:
   smashHitBox: {fileID: 810316912896545765, guid: b33d335fdd6dd4a21bca0c2f56d413ff, type: 3}
   audioSource: {fileID: 754234647754297428}
   smashSound: {fileID: 8300000, guid: a29e114f3c4c54ef1b9cc2c89f2e1bd3, type: 3}
-  spawnSound: {fileID: 8300000, guid: 5185f4be40879411aaec7160f0fad3e1, type: 3}
+  spawnSound: {fileID: 8300000, guid: 49ec145fb5b8040c2b5ff8d85342f605, type: 3}
   SensorBehaviorScript: {fileID: 4385601855480976543}
   player: {fileID: 0}
   head: {fileID: 8660483548966135836}

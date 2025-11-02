@@ -135,7 +135,7 @@ MonoBehaviour:
   plateHitEffect: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
   spawnEffect: {fileID: 100008, guid: e3d819d8722fa1f47a3f68574b56dfb3, type: 3}
   audioSource: {fileID: 8406649101322273723}
-  spawnSound: {fileID: 8300000, guid: 5185f4be40879411aaec7160f0fad3e1, type: 3}
+  spawnSound: {fileID: 8300000, guid: 49ec145fb5b8040c2b5ff8d85342f605, type: 3}
 --- !u!114 &-6577833007447494651
 MonoBehaviour:
   m_ObjectHideFlags: 0
