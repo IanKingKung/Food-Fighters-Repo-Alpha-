@@ -24,10 +24,17 @@ public class EnemyBehavior : MonoBehaviour
     //effects
     public GameObject deathEffect;
     public GameObject plateHitEffect;
+    public GameObject spawnEffect;
+
+    //access to sounds
+    public AudioSource audioSource;
+    public AudioClip spawnSound;
 
 
     void Start()
     {
+        Instantiate(spawnEffect, transform.position - new Vector3(0f, 0.2f, 0f), Quaternion.Euler(90f, 90f, 90f));
+        audioSource.PlayOneShot(spawnSound);
         player = GameObject.FindWithTag("Player");
         currentHealth = maxHealth;
     }

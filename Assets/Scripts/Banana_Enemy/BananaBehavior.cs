@@ -30,10 +30,14 @@ public class BananaBehavior : MonoBehaviour
     //sound effects
     public AudioSource audioSource;
     public AudioClip shootSound;
+    public GameObject spawnEffect;
+    public AudioClip spawnSound;
 
 
     void Start()
     {
+        Instantiate(spawnEffect, transform.position - new Vector3(0f, 0.2f, 0f), Quaternion.Euler(90f, 90f, 90f));
+        audioSource.PlayOneShot(spawnSound);
         player = GameObject.FindGameObjectWithTag("Player");
         canShoot = true;
         currentHealth = maxHealth;

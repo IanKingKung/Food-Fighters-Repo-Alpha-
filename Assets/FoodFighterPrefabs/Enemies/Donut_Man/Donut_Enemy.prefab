@@ -167,6 +167,7 @@ MonoBehaviour:
   smashHitBox: {fileID: 810316912896545765, guid: b33d335fdd6dd4a21bca0c2f56d413ff, type: 3}
   audioSource: {fileID: 754234647754297428}
   smashSound: {fileID: 8300000, guid: a29e114f3c4c54ef1b9cc2c89f2e1bd3, type: 3}
+  spawnSound: {fileID: 8300000, guid: 5185f4be40879411aaec7160f0fad3e1, type: 3}
   SensorBehaviorScript: {fileID: 4385601855480976543}
   player: {fileID: 0}
   head: {fileID: 8660483548966135836}
@@ -176,6 +177,7 @@ MonoBehaviour:
   currentHealth: 0
   plateHitEffect: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
   donutDeathEffect: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
+  spawnEffect: {fileID: 100008, guid: e3d819d8722fa1f47a3f68574b56dfb3, type: 3}
   coinPrefab: {fileID: 7082372411907532300, guid: 6ed9e27e8a4a04231bd2c4bec03842bc, type: 3}
   ammoPlatePrefab: {fileID: 1692199445723418006, guid: b8201e2aba48544379646dc6d3445207, type: 3}
   manaDropletPrefab: {fileID: 6605989218232141728, guid: 0e118febb1e3242028b4109df1ac5900, type: 3}

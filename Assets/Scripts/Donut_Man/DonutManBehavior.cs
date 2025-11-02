@@ -15,6 +15,7 @@ public class DonutManBehavior : MonoBehaviour
     //sound
     public AudioSource audioSource;
     public AudioClip smashSound;
+    public AudioClip spawnSound;
 
     //access to donut_sensor
     public SensorBehavior SensorBehaviorScript;
@@ -33,6 +34,7 @@ public class DonutManBehavior : MonoBehaviour
     //effects
     public GameObject plateHitEffect;
     public GameObject donutDeathEffect;
+    public GameObject spawnEffect;
 
     //loot and drops 
     public GameObject coinPrefab;
@@ -51,6 +53,8 @@ public class DonutManBehavior : MonoBehaviour
 
     void Start()
     {
+        Instantiate(spawnEffect, transform.position - new Vector3(0f, 0.2f, 0f), Quaternion.Euler(90f, 90f, 90f));
+        audioSource.PlayOneShot(spawnSound);
         currentHealth = 50;
         player = GameObject.FindGameObjectWithTag("Player");
         speed = 0.5f;

@@ -299,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6076533872994925266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.34, y: 0.592, z: -1.74}
   m_LocalScale: {x: 10.215926, y: 10.215926, z: 10.215926}
   m_ConstrainProportionsScale: 0
@@ -408,6 +408,8 @@ MonoBehaviour:
   bananaEnemyAnimator: {fileID: 5305931161707244376}
   audioSource: {fileID: 6844862936554250463}
   shootSound: {fileID: 8300000, guid: d41ffb6e3291a4cdaa409ee4b192dadb, type: 3}
+  spawnEffect: {fileID: 100008, guid: e3d819d8722fa1f47a3f68574b56dfb3, type: 3}
+  spawnSound: {fileID: 8300000, guid: 5185f4be40879411aaec7160f0fad3e1, type: 3}
 --- !u!114 &6470424490078449376
 MonoBehaviour:
   m_ObjectHideFlags: 0
