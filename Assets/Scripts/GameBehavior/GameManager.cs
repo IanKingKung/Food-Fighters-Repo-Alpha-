@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public enum GameState
@@ -24,11 +25,11 @@ public class GameManager : MonoBehaviour
     //keep track of game
     public bool isGameOver; //bool to determine if the game is over
     public int gameRound;
-    private int maxRound = 13;
+    private int maxRound = 15;
     public GameState currentState = GameState.Playing;
 
     //coin information
-    public static int numCoins = 1000;
+    public static int numCoins;
     int maxCoins = 10000;
 
     //play death screen if user dies
@@ -43,6 +44,9 @@ public class GameManager : MonoBehaviour
     //access to its sound
     public AudioSource audioSource;
     public AudioClip bellSound;
+
+    //access to next scene
+    private string nextSceneName = "GameOverScene";
 
 
     void Start()
@@ -74,7 +78,7 @@ public class GameManager : MonoBehaviour
     //play the game round
     public IEnumerator PlayRound()
     {
-
+        if(gameRound > maxRound) SceneManager.LoadScene(nextSceneName);
         yield return StartCoroutine(BellsRinging());
         Debug.Log($"StartRound {gameRound}");
         if (isGameOver) yield break;
@@ -106,7 +110,8 @@ public class GameManager : MonoBehaviour
         if (gameRound >= maxRound)
         {
             //CONGRATS YOU WON THE GAME
-            // Debug.Log("Game Won");
+            yield return StartCoroutine(SevenBellsRinging());
+            SceneManager.LoadScene(nextSceneName);
 
         }
         else
@@ -114,10 +119,20 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(PlayRound());
         }
     }
-    
+
     IEnumerator BellsRinging()
     {
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
+        {
+            audioSource.PlayOneShot(bellSound);
+            yield return new WaitForSeconds(2.3f);
+        }
+
+    }
+    
+    IEnumerator SevenBellsRinging()
+    {
+        for(int i = 0; i < 7; i++)
         {
             audioSource.PlayOneShot(bellSound);
             yield return new WaitForSeconds(2.3f);
