@@ -36,6 +36,7 @@ IEnumerator PlayIntro()
     while (t < fadeDuration)
     {
         t += Time.deltaTime;
+        //smoothly transition alpha to create a fade
         float alpha = Mathf.Lerp(0, 1, t / fadeDuration);
         textColor.a = alpha;
         introText.color = textColor;
@@ -50,6 +51,7 @@ IEnumerator PlayIntro()
     while (t < fadeDuration)
     {
         t += Time.deltaTime;
+        //ma
         float alpha = Mathf.Lerp(1, 0, t / fadeDuration);
         textColor.a = alpha;
         bgColor.a = alpha; // fade out background too
