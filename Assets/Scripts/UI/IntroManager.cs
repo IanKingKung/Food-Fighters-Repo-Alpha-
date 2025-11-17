@@ -19,6 +19,7 @@ public class IntroManager : MonoBehaviour
 
 IEnumerator PlayIntro()
 {
+    //TODO add a skip button 
     // Start fully invisible
     Color textColor = introText.color;
     Color bgColor = background.color;
